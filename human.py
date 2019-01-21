@@ -9,19 +9,15 @@ def show(state):
             print(f"| _ |", end='')
     print()
 
+
 def make_move(state, dice):
 
     yourmove = list(map(int, input("Input numbers: \t").split()))
-    if sum(dice) != sum(yourmove):
-        print("Not valid, move doesn't equal dice, try again")
-        make_move(state, dice)
-
-    elif sorted(yourmove) not in moves(sum(dice), numbers=state):
+    if sorted(yourmove) not in moves(sum(dice), numbers=state):
         print("Not a valid move, try again")
-        make_move(state, dice)
-
-    return [s for s in state if s not in yourmove]
-
+        return make_move(state, dice)
+    else:
+        return [s for s in state if s not in yourmove]
 
 
 def check_loss(state, dice):
@@ -39,7 +35,6 @@ def play():
 
     while state != []:
         show(state)
-
         if (7 in state) or (8 in state) or (9 in state):
             dice = roll(2)
         else:
