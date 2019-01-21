@@ -11,7 +11,7 @@ def show(state):
 
 def make_move(state, dice):
 
-    yourmove = list(map(int, input("Input numbers (comma-seperated)\t").split(',')))
+    yourmove = list(map(int, input("Input numbers: \t").split()))
     if sum(dice) != sum(yourmove):
         print("Not valid, move doesn't equal dice, try again")
         make_move(state, dice)
