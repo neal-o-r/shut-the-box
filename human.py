@@ -16,7 +16,7 @@ def make_move(state, dice):
         print("Not valid, move doesn't equal dice, try again")
         make_move(state, dice)
 
-    if sorted(yourmove) not in moves(sum(dice), numbers=state):
+    elif sorted(yourmove) not in moves(sum(dice), numbers=state):
         print("Not a valid move, try again")
         make_move(state, dice)
 
