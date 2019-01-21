@@ -11,7 +11,7 @@ def show(state):
 
 def make_move(state, dice):
 
-    yourmove = list(map(int, input("Input numbers (comma-seperated)\n").split(',')))
+    yourmove = list(map(int, input("Input numbers (comma-seperated)\t").split(',')))
     if sum(dice) != sum(yourmove):
         print("Not valid, move doesn't equal dice, try again")
         make_move(state, dice)
@@ -42,17 +42,19 @@ def play():
 
         if (7 in state) or (8 in state) or (9 in state):
             dice = roll(2)
-            print(f"dice: {dice}")
         else:
             n = int(input("Roll 1 or 2 dice?\n"))
             dice = roll(n)
-            print(f"dice: {dice}")
+
+        print("dice:", *dice)
 
         lost = check_loss(state, dice)
         if lost:
             break
         state = make_move(state, dice)
 
+    if not lost:
+        print("You won!")
 
 
 if __name__ == "__main__":

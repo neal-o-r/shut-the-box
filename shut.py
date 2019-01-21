@@ -1,6 +1,5 @@
 import random as rd
 
-rd.seed(123)
 
 def moves(target, numbers=range(1,10), partial=[], partial_sum=0):
     if partial_sum == target:
